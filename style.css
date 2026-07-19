@@ -5,10 +5,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 :root {
+    /* Cloud & DevOps matching theme accent colors used across all tags & buttons */
     --theme-accent: #0ea5e9; 
     --theme-accent-hover: #0284c7;
     --dark-bg: #0f172a;
@@ -24,7 +24,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -32,12 +31,11 @@ body {
     color: var(--text-main);
     background-color: var(--light-bg);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -60,7 +58,7 @@ body {
 }
 
 /* ==========================================================================
-   REUSABLE BUTTON COMPONENTS
+   ♻️ REUSABLE BUTTON COMPONENTS (Using Flexbox)
    ========================================================================== */
 .btn {
     display: inline-flex;
@@ -113,7 +111,7 @@ body {
 }
 
 /* ==========================================================================
-   NAVBAR SECTION
+   🔹 NAVBAR SECTION (Flexbox)
    ========================================================================== */
 .navbar-header {
     background-color: rgba(255, 255, 255, 0.95);
@@ -149,7 +147,7 @@ body {
 }
 
 /* ==========================================================================
-   BANNER (HERO) SECTION
+   🔹 BANNER (HERO) SECTION (Flexbox)
    ========================================================================== */
 .hero-section {
     position: relative;
@@ -159,7 +157,9 @@ body {
     background-repeat: no-repeat;
     color: #ffffff;
     padding: 160px 0;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-overlay {
@@ -176,7 +176,6 @@ body {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,7 +197,7 @@ body {
 }
 
 /* ==========================================================================
-     MEET THE SPEAKERS SECTION
+   🔹 MEET THE SPEAKERS SECTION (Grid to Flex Layouts)
    ========================================================================== */
 .speakers-section {
     padding: 80px 24px;
@@ -246,7 +245,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
-    color: var(--theme-accent);
+    color: var(--theme-accent); /* All roles modified to Cloud & DevOps color */
 }
 
 .speaker-info h3 {
@@ -262,7 +261,7 @@ body {
 }
 
 /* ==========================================================================
-    SECURE YOUR SPOT (PRICING) SECTION
+   🔹 SECURE YOUR SPOT (PRICING) SECTION (Flexbox Columns)
    ========================================================================== */
 .pricing-section {
     padding: 80px 24px;
@@ -272,7 +271,6 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 24px;
-    padding: 10px 0; 
 }
 
 .price-card {
@@ -347,14 +345,13 @@ body {
 }
 
 /* ==========================================================================
-    VENUE SECTION
+   🎨 VENUE SECTION (Flexbox Wrapper)
    ========================================================================== */
 .venue-section {
     background-color: #f1f5f9;
     padding: 80px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    width: 100%;
 }
 
 .venue-wrapper {
@@ -469,14 +466,13 @@ body {
 }
 
 /* ==========================================================================
-    FOOTER SECTION
+   🔹 FOOTER SECTION (Flexbox & Centered Text)
    ========================================================================== */
 .footer-section {
     background-color: var(--dark-bg);
     color: #ffffff;
     padding: 64px 0 32px 0;
     margin-top: 40px;
-    width: 100%;
 }
 
 .footer-top {
@@ -509,13 +505,13 @@ body {
 }
 
 .footer-bottom {
-    text-align: center; 
+    text-align: center; /* Copyright Text Fully Centered */
     font-size: 0.9rem;
     color: #94a3b8;
 }
 
 /* ==========================================================================
-    RESPONSIVE DESIGN (Media Queries)
+   RESPONSIVE DESIGN (Media Queries via Flex Direction Overrides)
    ========================================================================== */
 @media (max-width: 992px) {
     .pricing-row, .venue-wrapper {
