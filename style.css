@@ -5,12 +5,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 :root {
-    --theme-accent: #0ea5e9; 
-    --theme-accent-hover: #0284c7;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
     --dark-bg: #0f172a;
     --light-bg: #f8fafc;
     --card-bg: #ffffff;
@@ -24,7 +23,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -32,21 +30,17 @@ body {
     color: var(--text-main);
     background-color: var(--light-bg);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-.section-title, .section-subtitle {
-    text-align: center;
-}
-
 .section-title {
+    text-align: center;
     font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -54,14 +48,16 @@ body {
 }
 
 .section-subtitle {
+    text-align: center;
     color: var(--text-muted);
     font-size: 1rem;
     margin-bottom: 48px;
 }
 
 /* ==========================================================================
-   REUSABLE BUTTON COMPONENTS
+   ♻️ REUSABLE BUTTON COMPONENTS (Common Base + Modifiers via Flexbox)
    ========================================================================== */
+/* Base Button Structure using Flexbox for center alignment */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -77,35 +73,42 @@ body {
     white-space: nowrap;
 }
 
+/* Modifier: Solid Accent Color */
 .btn-primary {
-    background-color: var(--theme-accent);
+    background-color: var(--primary-color);
     color: #ffffff;
 }
 
 .btn-primary:hover {
-    background-color: var(--theme-accent-hover);
+    background-color: var(--primary-hover);
 }
 
+/* Modifier: Border / Outline Style */
 .btn-outline {
     background-color: transparent;
-    border-color: var(--theme-accent);
-    color: var(--theme-accent);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .btn-outline:hover {
-    background-color: var(--theme-accent);
+    background-color: var(--primary-color);
     color: #ffffff;
 }
 
+/* Modifier: Bigger Size for Hero Section Call-to-Actions */
 .btn-large {
     padding: 14px 32px;
     font-size: 1.1rem;
 }
 
+/* Modifier: Full width utility for flexible containers */
 .btn-block {
     width: 100%;
 }
 
+/* ==========================================================================
+   COMMON UTILITY IMAGES
+   ========================================================================== */
 .logo img {
     height: 40px;
     display: block;
@@ -113,7 +116,7 @@ body {
 }
 
 /* ==========================================================================
-   NAVBAR SECTION
+   🔹 NAVBAR SECTION (Flexbox Layout)
    ========================================================================== */
 .navbar-header {
     background-color: rgba(255, 255, 255, 0.95);
@@ -131,6 +134,10 @@ body {
     height: 80px;
 }
 
+.logo {
+    text-decoration: none;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -145,11 +152,11 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--theme-accent);
+    color: var(--primary-color);
 }
 
 /* ==========================================================================
-   BANNER (HERO) SECTION
+   🔹 BANNER (HERO) SECTION (Flexbox Centering)
    ========================================================================== */
 .hero-section {
     position: relative;
@@ -159,7 +166,9 @@ body {
     background-repeat: no-repeat;
     color: #ffffff;
     padding: 160px 0;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-overlay {
@@ -176,7 +185,6 @@ body {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,6 +198,12 @@ body {
     letter-spacing: -1px;
 }
 
+.hero-content h1 em {
+    font-style: italic;
+    font-weight: 800;
+    color: #ffffff;
+}
+
 .hero-content p {
     font-size: 1.25rem;
     color: #cbd5e1;
@@ -198,7 +212,7 @@ body {
 }
 
 /* ==========================================================================
-     MEET THE SPEAKERS SECTION
+   🔹 MEET THE SPEAKERS SECTION
    ========================================================================== */
 .speakers-section {
     padding: 80px 24px;
@@ -227,6 +241,7 @@ body {
 .speaker-img-container {
     width: 100%;
     height: 320px;
+    overflow: hidden;
 }
 
 .speaker-img-container img {
@@ -246,8 +261,12 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
-    color: var(--theme-accent);
 }
+
+.track-ai { color: #8b5cf6; }
+.track-cloud { color: #0ea5e9; }
+.track-frontend { color: #f59e0b; }
+.track-security { color: #10b981; }
 
 .speaker-info h3 {
     font-size: 1.5rem;
@@ -262,7 +281,7 @@ body {
 }
 
 /* ==========================================================================
-    SECURE YOUR SPOT (PRICING) SECTION
+   🔹 SECURE YOUR SPOT (PRICING) SECTION (Flexbox Column Layout)
    ========================================================================== */
 .pricing-section {
     padding: 80px 24px;
@@ -272,7 +291,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 24px;
-    padding: 10px 0; 
+    align-items: stretch;
 }
 
 .price-card {
@@ -283,14 +302,14 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes button to bottom dynamically */
     transition: var(--transition);
 }
 
 .price-card.featured {
     background-color: var(--featured-card-bg);
     color: #ffffff;
-    border-color: var(--theme-accent);
+    border-color: var(--primary-color);
     transform: scale(1.03);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
 }
@@ -342,24 +361,28 @@ body {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--theme-accent);
+    color: var(--primary-color);
     font-weight: bold;
 }
 
+.featured .feature-list li::before {
+    color: #60a5fa;
+}
+
 /* ==========================================================================
-    VENUE SECTION
+   🎨 VENUE SECTION (Flexbox Dynamic Wrapper)
    ========================================================================== */
 .venue-section {
     background-color: #f1f5f9;
     padding: 80px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    width: 100%;
 }
 
 .venue-wrapper {
     display: flex;
     gap: 40px;
+    align-items: stretch;
     margin-top: 20px;
 }
 
@@ -378,7 +401,7 @@ body {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--theme-accent);
+    color: var(--primary-color);
     letter-spacing: 1px;
     margin-bottom: 12px;
 }
@@ -411,7 +434,7 @@ body {
 
 .logistics-item i {
     font-size: 1.25rem;
-    color: var(--theme-accent);
+    color: var(--primary-color);
     background: #eff6ff;
     padding: 12px;
     border-radius: 8px;
@@ -469,14 +492,13 @@ body {
 }
 
 /* ==========================================================================
-    FOOTER SECTION
+   🔹 FOOTER SECTION (Flexbox Row Layout)
    ========================================================================== */
 .footer-section {
     background-color: var(--dark-bg);
     color: #ffffff;
     padding: 64px 0 32px 0;
     margin-top: 40px;
-    width: 100%;
 }
 
 .footer-top {
@@ -509,22 +531,25 @@ body {
 }
 
 .footer-bottom {
-    text-align: center; 
+    text-align: left;
     font-size: 0.9rem;
     color: #94a3b8;
 }
 
-}
 /* ==========================================================================
-    RESPONSIVE DESIGN (Media Queries)
+   RESPONSIVE DESIGN (Media Queries via Flex Direction Overrides)
    ========================================================================== */
 @media (max-width: 992px) {
-    .pricing-row, .venue-wrapper {
+    .pricing-row {
         flex-direction: column;
         gap: 32px;
     }
     .price-card.featured {
         transform: scale(1);
+    }
+    .venue-wrapper {
+        flex-direction: column;
+        gap: 32px;
     }
     .venue-map-card {
         min-height: 300px;
@@ -544,6 +569,6 @@ body {
     .footer-top {
         flex-direction: column;
         gap: 24px;
+        align-items: flex-start;
     }
-
-
+}
