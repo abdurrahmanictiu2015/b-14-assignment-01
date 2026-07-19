@@ -1,11 +1,14 @@
-* {
+/* ==========================================================================
+   RESET & GLOBAL VARIABLES
+   ========================================================================== */
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 :root {
-    
+    /* Cloud & DevOps matching theme accent colors used across all tags & buttons */
     --theme-accent: #0ea5e9; 
     --theme-accent-hover: #0284c7;
     --dark-bg: #0f172a;
@@ -18,7 +21,6 @@
     --font-stack: 'Inter', sans-serif;
     --transition: all 0.3s ease;
 }
-
 
 html {
     scroll-behavior: smooth;
@@ -195,7 +197,7 @@ body {
 }
 
 /* ==========================================================================
-    MEET THE SPEAKERS SECTION (Grid to Flex Layouts)
+     MEET THE SPEAKERS SECTION (Grid to Flex Layouts)
    ========================================================================== */
 .speakers-section {
     padding: 80px 24px;
@@ -243,7 +245,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
-    color: var(--theme-accent); 
+    color: var(--theme-accent); /* All roles modified to Cloud & DevOps color */
 }
 
 .speaker-info h3 {
@@ -258,11 +260,10 @@ body {
     font-size: 0.95rem;
 }
 
-
 /* ==========================================================================
     SECURE YOUR SPOT (PRICING) SECTION (Flexbox Columns)
    ========================================================================== */
-   .pricing-section {
+.pricing-section {
     padding: 80px 24px;
 }
 
@@ -507,4 +508,36 @@ body {
     text-align: center; /* Copyright Text Fully Centered */
     font-size: 0.9rem;
     color: #94a3b8;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Queries via Flex Direction Overrides)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .pricing-row, .venue-wrapper {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .price-card.featured {
+        transform: scale(1);
+    }
+    .venue-map-card {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 2.75rem;
+    }
+    .speaker-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-top {
+        flex-direction: column;
+        gap: 24px;
+    }
 }
