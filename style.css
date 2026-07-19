@@ -37,7 +37,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -513,4 +513,36 @@ body {
     font-size: 0.9rem;
     color: #94a3b8;
 }
+/* ==========================================================================
+    RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .pricing-row, .venue-wrapper {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .price-card.featured {
+        transform: scale(1);
+    }
+    .venue-map-card {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+    }
+    .hero-content h1 {
+        font-size: 2.75rem;
+    }
+    .speaker-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-top {
+        flex-direction: column;
+        gap: 24px;
+    }
+}
+
 
