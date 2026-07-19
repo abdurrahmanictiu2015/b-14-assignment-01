@@ -3,3 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    
+    --theme-accent: #0ea5e9; 
+    --theme-accent-hover: #0284c7;
+    --dark-bg: #0f172a;
+    --light-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --featured-card-bg: #0b1329;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --font-stack: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+}
+
